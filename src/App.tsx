@@ -1,3 +1,4 @@
+import { useTheme } from './lib/useTheme';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -12,8 +13,10 @@ import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 
 export default function App() {
+  useTheme();
+
   return (
-    <div className="relative min-h-screen bg-ink-950 text-ink-100 overflow-x-hidden">
+    <div className="relative min-h-screen bg-slate-50 text-slate-800 dark:bg-ink-950 dark:text-ink-100 overflow-x-hidden transition-colors duration-500">
       <Navbar />
       <main>
         <Hero />

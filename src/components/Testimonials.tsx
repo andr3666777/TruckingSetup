@@ -36,13 +36,12 @@ export default function Testimonials() {
   }, [next]);
 
   return (
-    <section id="testimonials" className="relative py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-ink-950 via-navy-950/20 to-ink-950" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-500/5 rounded-full blur-[120px]" />
+    <section id="testimonials" className="relative py-24 lg:py-32 overflow-hidden bg-slate-50 dark:bg-ink-950">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-400/5 dark:bg-accent-500/5 rounded-full blur-[120px]" />
 
       <div className="relative section-pad max-w-5xl mx-auto">
         <div ref={ref} className={`reveal ${isVisible ? 'is-visible' : ''} text-center mb-16`}>
-          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-400 mb-5">
+          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-500 dark:text-accent-400 mb-5">
             Testimonials
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-gradient mb-5 leading-tight">
@@ -53,8 +52,7 @@ export default function Testimonials() {
         {/* Carousel */}
         <div className="relative">
           <div className="glass-card !rounded-3xl p-8 sm:p-12 relative overflow-hidden">
-            {/* Quote icon */}
-            <Quote className="absolute top-6 right-8 w-20 h-20 text-white/5" />
+            <Quote className="absolute top-6 right-8 w-20 h-20 text-slate-200 dark:text-white/5" />
 
             {/* Slides */}
             <div className="relative min-h-[280px] sm:min-h-[240px] flex items-center">
@@ -70,11 +68,11 @@ export default function Testimonials() {
                   {/* Stars */}
                   <div className="flex gap-1 mb-6">
                     {[...Array(5)].map((_, s) => (
-                      <Star key={s} className="w-5 h-5 text-accent-400 fill-accent-400" />
+                      <Star key={s} className="w-5 h-5 text-accent-500 dark:text-accent-400 fill-accent-500 dark:fill-accent-400" />
                     ))}
                   </div>
 
-                  <p className="text-lg sm:text-xl text-ink-100 leading-relaxed mb-8 max-w-3xl font-medium">
+                  <p className="text-lg sm:text-xl text-slate-700 dark:text-ink-100 leading-relaxed mb-8 max-w-3xl font-medium">
                     "{t.quote}"
                   </p>
 
@@ -85,8 +83,8 @@ export default function Testimonials() {
                       className="w-14 h-14 rounded-full object-cover border-2 border-accent-500/30"
                     />
                     <div className="text-left">
-                      <div className="font-display font-bold text-white">{t.name}</div>
-                      <div className="text-sm text-ink-300">{t.role}</div>
+                      <div className="font-display font-bold text-slate-800 dark:text-white">{t.name}</div>
+                      <div className="text-sm text-slate-500 dark:text-ink-300">{t.role}</div>
                     </div>
                   </div>
                 </div>
@@ -98,7 +96,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
-              className="w-11 h-11 rounded-full glass flex items-center justify-center text-white hover:bg-white/10 hover:scale-110 transition-all"
+              className="w-11 h-11 rounded-full glass flex items-center justify-center text-slate-600 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 hover:scale-110 transition-all"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -111,7 +109,7 @@ export default function Testimonials() {
                   key={i}
                   onClick={() => setActive(i)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    i === active ? 'w-8 bg-accent-500' : 'w-2 bg-white/20 hover:bg-white/40'
+                    i === active ? 'w-8 bg-accent-500' : 'w-2 bg-slate-300 dark:bg-white/20 hover:bg-slate-400 dark:hover:bg-white/40'
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -120,7 +118,7 @@ export default function Testimonials() {
 
             <button
               onClick={next}
-              className="w-11 h-11 rounded-full glass flex items-center justify-center text-white hover:bg-white/10 hover:scale-110 transition-all"
+              className="w-11 h-11 rounded-full glass flex items-center justify-center text-slate-600 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 hover:scale-110 transition-all"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />

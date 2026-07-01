@@ -38,7 +38,7 @@ function FAQItem({ faq, index, isOpen, onToggle }: {
   return (
     <div
       className={`glass-card overflow-hidden transition-all duration-300 ${
-        isOpen ? '!bg-white/[0.06] !border-white/20' : ''
+        isOpen ? '!bg-slate-100 dark:!bg-white/[0.06] !border-slate-300 dark:!border-white/20' : ''
       }`}
     >
       <button
@@ -47,14 +47,14 @@ function FAQItem({ faq, index, isOpen, onToggle }: {
       >
         <span className="flex items-center gap-4">
           <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-display font-bold text-sm transition-all duration-300 ${
-            isOpen ? 'bg-accent-500 text-white' : 'bg-white/5 text-ink-300 group-hover:text-white'
+            isOpen ? 'bg-accent-500 text-white' : 'bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-ink-300 group-hover:text-slate-800 dark:group-hover:text-white'
           }`}>
             {String(index + 1).padStart(2, '0')}
           </span>
-          <span className="font-display font-semibold text-base sm:text-lg text-white">{faq.q}</span>
+          <span className="font-display font-semibold text-base sm:text-lg text-slate-800 dark:text-white">{faq.q}</span>
         </span>
         <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
-          isOpen ? 'bg-accent-500/20 text-accent-400 rotate-0' : 'bg-white/5 text-ink-300 group-hover:text-white'
+          isOpen ? 'bg-accent-500/20 text-accent-500 dark:text-accent-400 rotate-0' : 'bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-ink-300 group-hover:text-slate-800 dark:group-hover:text-white'
         }`}>
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </span>
@@ -65,7 +65,7 @@ function FAQItem({ faq, index, isOpen, onToggle }: {
         }`}
       >
         <div className="overflow-hidden">
-          <p className="px-5 sm:px-6 pb-5 sm:pb-6 pl-[4.5rem] text-ink-300 leading-relaxed text-sm sm:text-base">
+          <p className="px-5 sm:px-6 pb-5 sm:pb-6 pl-[4.5rem] text-slate-600 dark:text-ink-300 leading-relaxed text-sm sm:text-base">
             {faq.a}
           </p>
         </div>
@@ -79,16 +79,16 @@ export default function FAQ() {
   const { ref, isVisible } = useReveal();
 
   return (
-    <section id="faq" className="relative py-24 lg:py-32">
+    <section id="faq" className="relative py-24 lg:py-32 bg-slate-100/50 dark:bg-ink-900/30">
       <div className="section-pad max-w-4xl mx-auto">
         <div ref={ref} className={`reveal ${isVisible ? 'is-visible' : ''} text-center mb-16`}>
-          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-400 mb-5">
+          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-500 dark:text-accent-400 mb-5">
             FAQ
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-gradient mb-5 leading-tight">
             Questions? We've Got Answers.
           </h2>
-          <p className="text-ink-300 text-lg">
+          <p className="text-slate-600 dark:text-ink-300 text-lg">
             Everything you need to know before getting started.
           </p>
         </div>

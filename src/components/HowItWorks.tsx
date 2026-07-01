@@ -24,13 +24,13 @@ function StepCard({ step, index }: { step: (typeof steps)[number]; index: number
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center shadow-lg shadow-accent-500/30 group-hover:scale-110 transition-transform duration-500">
             <step.icon className="w-7 h-7 text-white" />
           </div>
-          <span className="font-display font-extrabold text-4xl sm:text-5xl text-white/5 group-hover:text-white/10 transition-colors">
+          <span className="font-display font-extrabold text-4xl sm:text-5xl text-slate-200 dark:text-white/5 group-hover:text-slate-300 dark:group-hover:text-white/10 transition-colors">
             {String(index + 1).padStart(2, '0')}
           </span>
         </div>
 
-        <h3 className="font-display font-bold text-lg text-white mb-2">{step.title}</h3>
-        <p className="text-sm text-ink-300 leading-relaxed">{step.desc}</p>
+        <h3 className="font-display font-bold text-lg text-slate-800 dark:text-white mb-2">{step.title}</h3>
+        <p className="text-sm text-slate-600 dark:text-ink-300 leading-relaxed">{step.desc}</p>
 
         {/* Hover accent line */}
         <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-accent-500 to-accent-600 group-hover:w-full transition-all duration-500" />
@@ -39,8 +39,8 @@ function StepCard({ step, index }: { step: (typeof steps)[number]; index: number
       {/* Connector arrow (desktop) */}
       {index < steps.length - 1 && (
         <div className="hidden lg:block absolute top-1/2 -right-3 z-10 -translate-y-1/2">
-          <div className="w-6 h-6 rounded-full bg-ink-800 border border-white/10 flex items-center justify-center">
-            <svg className="w-3 h-3 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+          <div className="w-6 h-6 rounded-full bg-white dark:bg-ink-800 border border-slate-200 dark:border-white/10 flex items-center justify-center">
+            <svg className="w-3 h-3 text-accent-500 dark:text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </div>
@@ -54,16 +54,16 @@ export default function HowItWorks() {
   const { ref, isVisible } = useReveal();
 
   return (
-    <section id="how-it-works" className="relative py-24 lg:py-32">
+    <section id="how-it-works" className="relative py-24 lg:py-32 bg-slate-100/50 dark:bg-ink-900/30">
       <div className="section-pad max-w-7xl mx-auto">
         <div ref={ref} className={`reveal ${isVisible ? 'is-visible' : ''} text-center max-w-3xl mx-auto mb-16`}>
-          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-400 mb-5">
+          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-500 dark:text-accent-400 mb-5">
             How It Works
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-gradient mb-5 leading-tight">
             From Idea to Hauling in Six Simple Steps
           </h2>
-          <p className="text-ink-300 text-lg">
+          <p className="text-slate-600 dark:text-ink-300 text-lg">
             A clear, proven roadmap that takes you from zero to profitable.
           </p>
         </div>

@@ -19,8 +19,8 @@ export default function CTABanner() {
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/85 to-ink-950/60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/75 to-slate-900/50 dark:from-ink-950 dark:via-ink-950/85 dark:to-ink-950/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/30 dark:from-ink-950 dark:via-transparent dark:to-ink-950/40" />
           </div>
 
           {/* Content */}
@@ -34,7 +34,7 @@ export default function CTABanner() {
               Ready to Start Your Trucking Business?
             </h2>
 
-            <p className="text-lg text-ink-200 mb-8 leading-relaxed">
+            <p className="text-lg text-slate-200 dark:text-ink-200 mb-8 leading-relaxed">
               Turn your dream into a profitable trucking company with expert guidance
               every step of the way.
             </p>

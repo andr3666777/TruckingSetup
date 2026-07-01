@@ -63,18 +63,18 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
       className={`reveal ${delay} ${isVisible ? 'is-visible' : ''} glass-card p-7 group relative overflow-hidden`}
     >
       {/* Hover gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-600/0 via-navy-600/0 to-accent-500/0 group-hover:from-navy-600/5 group-hover:to-accent-500/10 transition-all duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-500/0 via-transparent to-accent-500/0 group-hover:from-navy-500/5 group-hover:to-accent-500/10 transition-all duration-500" />
 
       <div className="relative">
         {/* Icon */}
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-ink-800 to-ink-900 border border-white/10 flex items-center justify-center mb-5 group-hover:from-accent-500 group-hover:to-accent-600 group-hover:border-accent-400/30 transition-all duration-500 group-hover:scale-110">
-          <service.icon className="w-7 h-7 text-accent-400 group-hover:text-white transition-colors duration-500" />
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-ink-800 dark:to-ink-900 border border-slate-200 dark:border-white/10 flex items-center justify-center mb-5 group-hover:from-accent-500 group-hover:to-accent-600 group-hover:border-accent-400/30 transition-all duration-500 group-hover:scale-110">
+          <service.icon className="w-7 h-7 text-accent-500 dark:text-accent-400 group-hover:text-white transition-colors duration-500" />
         </div>
 
-        <h3 className="font-display font-bold text-lg text-white mb-2.5 group-hover:text-accent-300 transition-colors">
+        <h3 className="font-display font-bold text-lg text-slate-800 dark:text-white mb-2.5 group-hover:text-accent-600 dark:group-hover:text-accent-300 transition-colors">
           {service.title}
         </h3>
-        <p className="text-sm text-ink-300 leading-relaxed">{service.desc}</p>
+        <p className="text-sm text-slate-600 dark:text-ink-300 leading-relaxed">{service.desc}</p>
       </div>
 
       {/* Corner accent */}
@@ -87,17 +87,17 @@ export default function Services() {
   const { ref, isVisible } = useReveal();
 
   return (
-    <section id="services" className="relative py-24 lg:py-32">
+    <section id="services" className="relative py-24 lg:py-32 bg-slate-50 dark:bg-ink-950">
       <div className="section-pad max-w-7xl mx-auto">
         {/* Header */}
         <div ref={ref} className={`reveal ${isVisible ? 'is-visible' : ''} text-center max-w-3xl mx-auto mb-16`}>
-          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-400 mb-5">
+          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-500 dark:text-accent-400 mb-5">
             Our Services
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-gradient mb-5 leading-tight">
             Everything You Need to Launch Your Trucking Business
           </h2>
-          <p className="text-ink-300 text-lg">
+          <p className="text-slate-600 dark:text-ink-300 text-lg">
             From paperwork to profitable loads — we cover every step of your journey.
           </p>
         </div>

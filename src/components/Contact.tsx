@@ -63,7 +63,6 @@ export default function Contact() {
       const { error } = await supabase.from('consultation_requests').insert(data);
       if (error) throw error;
 
-      // Send reply email via EmailJS (non-blocking — submission already saved)
       if (isEmailjsConfigured()) {
         try {
           await sendConsultationEmail(data);
@@ -81,19 +80,19 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-ink-950 via-navy-950/20 to-ink-950" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent-500/5 rounded-full blur-[120px]" />
+    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden bg-slate-50 dark:bg-ink-950">
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-100/50 via-slate-50 to-slate-50 dark:from-navy-950/20 dark:via-ink-950 dark:to-ink-950" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent-500/5 dark:bg-accent-500/5 rounded-full blur-[120px]" />
 
       <div className="relative section-pad max-w-7xl mx-auto">
         <div ref={ref} className={`reveal ${isVisible ? 'is-visible' : ''} text-center max-w-3xl mx-auto mb-16`}>
-          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-400 mb-5">
+          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-semibold uppercase tracking-wider text-accent-500 dark:text-accent-400 mb-5">
             Contact Us
           </span>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-gradient mb-5 leading-tight">
             Let's Get Your Trucks Moving
           </h2>
-          <p className="text-ink-300 text-lg">
+          <p className="text-slate-600 dark:text-ink-300 text-lg">
             Fill out the form below and our team will reach out within 24 hours to schedule your free consultation.
           </p>
         </div>
@@ -104,12 +103,12 @@ export default function Contact() {
             {contactInfo.map((info) => {
               const content = (
                 <div className="glass-card p-5 flex items-center gap-4 group">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-navy-600/20 to-navy-800/20 border border-navy-500/20 flex items-center justify-center group-hover:from-accent-500 group-hover:to-accent-600 group-hover:border-accent-400/30 transition-all duration-500 group-hover:scale-110">
-                    <info.icon className="w-6 h-6 text-navy-300 group-hover:text-white transition-colors duration-500" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-navy-600/20 dark:to-navy-800/20 border border-slate-200 dark:border-navy-500/20 flex items-center justify-center group-hover:from-accent-500 group-hover:to-accent-600 group-hover:border-accent-400/30 transition-all duration-500 group-hover:scale-110">
+                    <info.icon className="w-6 h-6 text-accent-500 dark:text-navy-300 group-hover:text-white transition-colors duration-500" />
                   </div>
                   <div>
-                    <div className="text-xs text-ink-400 uppercase tracking-wider font-semibold mb-0.5">{info.label}</div>
-                    <div className="text-white font-medium">{info.value}</div>
+                    <div className="text-xs text-slate-500 dark:text-ink-400 uppercase tracking-wider font-semibold mb-0.5">{info.label}</div>
+                    <div className="text-slate-800 dark:text-white font-medium">{info.value}</div>
                   </div>
                 </div>
               );
@@ -122,14 +121,14 @@ export default function Contact() {
 
             {/* Socials */}
             <div className="glass-card p-5">
-              <div className="text-xs text-ink-400 uppercase tracking-wider font-semibold mb-3">Follow Us</div>
+              <div className="text-xs text-slate-500 dark:text-ink-400 uppercase tracking-wider font-semibold mb-3">Follow Us</div>
               <div className="flex gap-3">
                 {socials.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-ink-300 hover:bg-accent-500 hover:text-white hover:border-accent-400 hover:scale-110 transition-all duration-300"
+                    className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-500 dark:text-ink-300 hover:bg-accent-500 hover:text-white hover:border-accent-400 hover:scale-110 transition-all duration-300"
                   >
                     <social.icon className="w-5 h-5" />
                   </a>
@@ -146,8 +145,8 @@ export default function Contact() {
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center mb-6 animate-scale-in">
                     <CheckCircle2 className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="font-display font-bold text-2xl text-white mb-3">Request Received!</h3>
-                  <p className="text-ink-300 max-w-md mb-6">
+                  <h3 className="font-display font-bold text-2xl text-slate-800 dark:text-white mb-3">Request Received!</h3>
+                  <p className="text-slate-600 dark:text-ink-300 max-w-md mb-6">
                     Thank you for reaching out. Our team will contact you within 24 hours to schedule your free consultation.
                   </p>
                   <button
@@ -161,70 +160,70 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-ink-200 mb-2">Name</label>
+                      <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-ink-200 mb-2">Name</label>
                       <input
                         id="name"
                         name="name"
                         type="text"
                         required
                         placeholder="John Doe"
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-ink-400 focus:outline-none focus:border-accent-500/50 focus:bg-white/[0.07] transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-ink-400 focus:outline-none focus:border-accent-500/50 focus:bg-white dark:focus:bg-white/[0.07] transition-all"
                       />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-ink-200 mb-2">Phone Number</label>
+                      <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-ink-200 mb-2">Phone Number</label>
                       <input
                         id="phone"
                         name="phone"
                         type="tel"
                         required
                         placeholder="(555) 123-4567"
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-ink-400 focus:outline-none focus:border-accent-500/50 focus:bg-white/[0.07] transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-ink-400 focus:outline-none focus:border-accent-500/50 focus:bg-white dark:focus:bg-white/[0.07] transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-ink-200 mb-2">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-ink-200 mb-2">Email</label>
                     <input
                       id="email"
                       name="email"
                       type="email"
                       required
                       placeholder="john@example.com"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-ink-400 focus:outline-none focus:border-accent-500/50 focus:bg-white/[0.07] transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-ink-400 focus:outline-none focus:border-accent-500/50 focus:bg-white dark:focus:bg-white/[0.07] transition-all"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="business_stage" className="block text-sm font-medium text-ink-200 mb-2">Business Stage</label>
+                    <label htmlFor="business_stage" className="block text-sm font-medium text-slate-700 dark:text-ink-200 mb-2">Business Stage</label>
                     <select
                       id="business_stage"
                       name="business_stage"
                       required
                       defaultValue=""
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-accent-500/50 focus:bg-white/[0.07] transition-all appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white focus:outline-none focus:border-accent-500/50 focus:bg-white dark:focus:bg-white/[0.07] transition-all appearance-none cursor-pointer"
                     >
-                      <option value="" disabled className="bg-ink-900">Select your stage</option>
+                      <option value="" disabled className="bg-white dark:bg-ink-900 text-slate-800 dark:text-white">Select your stage</option>
                       {businessStages.map((stage) => (
-                        <option key={stage} value={stage} className="bg-ink-900">{stage}</option>
+                        <option key={stage} value={stage} className="bg-white dark:bg-ink-900 text-slate-800 dark:text-white">{stage}</option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-ink-200 mb-2">Message <span className="text-ink-400 font-normal">(optional)</span></label>
+                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-ink-200 mb-2">Message <span className="text-slate-400 dark:text-ink-400 font-normal">(optional)</span></label>
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
                       placeholder="Tell us about your trucking goals..."
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-ink-400 focus:outline-none focus:border-accent-500/50 focus:bg-white/[0.07] transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-ink-400 focus:outline-none focus:border-accent-500/50 focus:bg-white dark:focus:bg-white/[0.07] transition-all resize-none"
                     />
                   </div>
 
                   {status === 'error' && (
-                    <div className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 text-sm">
+                    <div className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-300 text-sm">
                       <AlertCircle className="w-5 h-5 flex-shrink-0" />
                       {errorMsg}
                     </div>

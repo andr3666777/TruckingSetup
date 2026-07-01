@@ -25,17 +25,17 @@ export default function FloatingCTA() {
               <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center">
                 <Calendar className="w-5 h-5 text-white" />
               </div>
-              <span className="font-display font-bold text-white">Free Consultation</span>
+              <span className="font-display font-bold text-slate-800 dark:text-white">Free Consultation</span>
             </div>
             <button
               onClick={() => setExpanded(false)}
-              className="w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center text-ink-300"
+              className="w-8 h-8 rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 flex items-center justify-center text-slate-500 dark:text-ink-300"
               aria-label="Close"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
-          <p className="text-sm text-ink-300 mb-4">
+          <p className="text-sm text-slate-600 dark:text-ink-300 mb-4">
             Book a free 30-minute call with our trucking experts. We'll walk you through every step.
           </p>
           <a href="#contact" onClick={() => setExpanded(false)} className="btn-primary w-full justify-center text-sm">
