@@ -81,11 +81,11 @@ export default function Hero() {
             <div className="relative max-w-sm mx-auto lg:max-w-none">
               {/* Main image card */}
               <div className="relative rounded-3xl overflow-hidden glass-card !rounded-3xl p-2">
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
+                <div className="relative rounded-2xl overflow-hidden aspect-[16/10]">
                   <img
-                    src="https://images.pexels.com/photos/2675060/pexels-photo-2675060.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    src="/image.png"
                     alt="Modern semi-truck on the highway at sunset"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                     loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/20 to-transparent" />
