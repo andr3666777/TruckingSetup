@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { useReveal } from '../lib/hooks';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { sendConsultationEmail, isEmailjsConfigured } from '../lib/emailjs';
 import {
   Phone,
@@ -60,6 +60,10 @@ export default function Contact() {
     };
 
     try {
+      if (!isSupabaseConfigured() || !supabase) {
+        throw new Error('The contact form is not fully configured yet. Please call us at (480) 400-4518 or email info@TheTruckingSetup.com.');
+      }
+
       const { error } = await supabase.from('consultation_requests').insert(data);
       if (error) throw error;
 
